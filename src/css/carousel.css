@@ -1,0 +1,31 @@
+.carousel {
+	margin-top: 2.5em;
+}
+.inputt {
+	min-height: 30em;
+}
+
+.detailsCard {
+	margin: 1em;
+	display: flex;
+	width: 100%;
+}
+.cards {
+	margin-top: 3em;
+}
+
+.left {
+	flex: 0 0 35%;
+}
+
+.right {
+	flex: 1;
+}
+
+.deetCard {
+	width: 100%;
+}
+
+.descr {
+	margin-bottom: 3rem;
+}

@@ -1,0 +1,16 @@
+.navi{
+    background-color: #3d5a80;
+}
+.link{
+    color: white;
+}
+.link:hover{
+    color: burlywood;
+}
+
+.linkSidebar{
+    color:  black;
+}
+.linkSidebar:hover{
+    color: black;
+}

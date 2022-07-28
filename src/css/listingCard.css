@@ -1,0 +1,11 @@
+card-img-top{
+  padding: 2em;
+}
+
+.cards{
+  margin: 2em;
+}
+
+.cards:hover{
+  background-color: rgb(248, 245, 245);
+}
