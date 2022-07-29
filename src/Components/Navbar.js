@@ -71,7 +71,11 @@ export default function Navbar() {
 			<Link to="/favourites">
 				<MenuItem onClick={handleMenuClose}>Favourites</MenuItem>
 			</Link>
-			<MenuItem onClick={handleLogout}>Logout</MenuItem>
+			{
+				localStorage.getItem("uid")==null?(<MenuItem onClick={()=>navigate("/login")}>Login</MenuItem>)
+				:(<MenuItem onClick={handleLogout}>Logout</MenuItem>)
+			}
+			
 		</Menu>
 	);
 
@@ -116,14 +120,22 @@ export default function Navbar() {
 					Services
 				</Link>
 			</MenuItem>
-			<MenuItem>
-				<IconButton size="large" color="inherit">
-					<AccountCircle />
-				</IconButton>
-				<Link to="/login" className="linkSidebar">
-					Sign In
-				</Link>
-			</MenuItem>
+			{
+				localStorage.getItem("uid")===null?(
+					
+					<MenuItem>
+						<IconButton size="large" color="inherit">
+							<AccountCircle />
+						</IconButton>
+						<Link to="/services" className="linkSidebar">
+							Sign In
+						</Link>
+					</MenuItem>
+				):(
+					<></>
+				)
+			}
+			
 			<MenuItem>
 				<Link to="/message" className="linkSidebar">
 					<IconButton
@@ -228,24 +240,29 @@ export default function Navbar() {
 								Services
 							</Link>
 						</Typography>
-						<Typography
-							variant="h7"
-							noWrap
-							component="a"
-							mt={1.5}
-							mr={10}
-							sx={{
-								textDecoration: 'none',
-								fontFamily: 'Roboto',
-								fontWeight: 900,
-								letterSpacing: '.3rem',
-								color: 'inherit',
-							}}
-						>
-							<Link to="/login" className="link">
-								Sign In
-							</Link>
-						</Typography>
+						{
+							localStorage.getItem("uid")===null?(
+								<Typography
+									variant="h7"
+									noWrap
+									component="a"
+									mt={1.5}
+									mr={10}
+									sx={{
+										textDecoration: 'none',
+										fontFamily: 'Roboto',
+										fontWeight: 900,
+										letterSpacing: '.3rem',
+										color: 'inherit',
+									}}
+								>
+									<Link to="/login" className="link">
+										Sign In
+									</Link>
+								</Typography>
+							):(<></>)
+						}
+						
 						<IconButton
 							size="large"
 							aria-label="show 4 new mails"

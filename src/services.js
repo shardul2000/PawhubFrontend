@@ -337,24 +337,28 @@ export default function Services(props) {
 									Services
 								</Link>
 							</Typography>
-							<Typography
-								variant="h7"
-								noWrap
-								component="a"
-								mt={1.5}
-								mr={10}
-								sx={{
-									textDecoration: 'none',
-									fontFamily: 'Roboto',
-									fontWeight: 900,
-									letterSpacing: '.3rem',
-									color: 'inherit',
-								}}
-							>
-								<Link to="/login" className="link">
-									Sign In
-								</Link>
-							</Typography>
+							{
+							localStorage.getItem("uid")===null?(
+								<Typography
+									variant="h7"
+									noWrap
+									component="a"
+									mt={1.5}
+									mr={10}
+									sx={{
+										textDecoration: 'none',
+										fontFamily: 'Roboto',
+										fontWeight: 900,
+										letterSpacing: '.3rem',
+										color: 'inherit',
+									}}
+								>
+									<Link to="/login" className="link">
+										Sign In
+									</Link>
+								</Typography>
+							):(<></>)
+						}
 							<IconButton
 								size="large"
 								aria-label="show 4 new mails"
