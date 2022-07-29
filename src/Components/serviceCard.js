@@ -76,9 +76,7 @@ export default function ServiceCard({ listing }) {
 						title={name}
 						subheader={new Date(listing.createdAt).toString().substring(0, 15)}
 					/>
-					<Typography gutterBottom variant="h5" component="div">
-						{listing.title}
-					</Typography>
+					
 					<CardMedia
 						component="img"
 						height="194"
@@ -86,6 +84,9 @@ export default function ServiceCard({ listing }) {
 						alt=" "
 					/>
 					<CardContent>
+					<Typography gutterBottom variant="h5" component="div">
+						{listing.title}
+					</Typography>
 						<Typography variant="body2" color="text.secondary">
 							{listing.description}
 						</Typography>

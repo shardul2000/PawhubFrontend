@@ -52,6 +52,9 @@ export default function Services(props) {
 	const isMenuOpen = Boolean(anchorEl);
 	const menuId = 'primary-search-account-menu';
 
+	//search field
+    const[search, setSearch]=useState("");
+
 	const handleProfileMenuOpen = (event) => {
 		setAnchorEl(event.currentTarget);
 	};
@@ -462,6 +465,9 @@ export default function Services(props) {
 								variant="outlined"
 								sx={{ width: 350 }}
 								className="msgBtn"
+								onChange={(e)=>{
+									setSearch(e.target.value);
+								}}
 							/>
 						</div>
 						<div className="inner">
@@ -495,19 +501,28 @@ export default function Services(props) {
 							</Box>
 						</div>
 					</div>
-
 					<div className="container">
 						<Box mt={3}>
-							<Grid container>
-								{listings.length === 0
-									? `No service listings in ${city}`
-									: listings.map((element) => {
-											return (
-												<Grid item xs={12} sm={12} md={6} lg={4} spacing={2}>
-													<ServiceCard listing={element} />
-												</Grid>
-											);
-									  })}
+							<Grid container sx ={{minHeight:'30em'}}>
+								{
+									listings.length === 0
+									? (`No ads found for ${city}`)
+									:listings.filter((item)=>{
+										if(search==""){
+											return item;
+										}
+										else if(item.title.toLowerCase().includes(search.toLowerCase())){
+											return item;
+										}
+									})
+									.map((item) => {
+										return (
+											<Grid item xs={12} sm={12} md={6} lg={4} spacing={2}>
+												<ServiceCard listing={item} />
+											</Grid>
+										);
+									})		  
+								}	  
 							</Grid>
 						</Box>
 					</div>
