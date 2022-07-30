@@ -267,7 +267,7 @@ export default function Navbar() {
 							size="large"
 							aria-label="show 4 new mails"
 							color="inherit"
-							onClick={() => navigate('/message')}
+							onClick={() => navigate('/messenger')}
 						>
 							<Badge badgeContent={0} color="error">
 								<MailIcon />

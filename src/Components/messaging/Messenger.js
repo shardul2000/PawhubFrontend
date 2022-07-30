@@ -19,13 +19,11 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import Badge from '@mui/material/Badge';
 import ReportIcon from '@mui/icons-material/Report';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import { Grid, TextField, Fab, Menu, MenuItem,ListSubheader,Button, Divider, Avatar } from '@mui/material';
+import { Grid, TextField, Menu, MenuItem,ListSubheader, Divider, Avatar } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import Footer from '../Footer';
 import { Link, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { borderRadius } from '@mui/system';
+import { useState } from 'react';
 import SendIcon from '@mui/icons-material/Send';
 import Message from './message';
 

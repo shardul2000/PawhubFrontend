@@ -226,7 +226,7 @@ export default function Market(props) {
 				</Link>
 			</MenuItem>
 			<MenuItem>
-				<Link to="/message" className="linkSidebar">
+				<Link to="/messenger" className="linkSidebar">
 					<IconButton
 						size="large"
 						aria-label="show 4 new mails"
@@ -374,7 +374,7 @@ export default function Market(props) {
 								size="large"
 								aria-label="show 4 new mails"
 								color="inherit"
-								onClick={() => navigate('/message')}
+								onClick={() => navigate('/messenger')}
 							>
 								<Badge badgeContent={0} color="error">
 									<MailIcon />
@@ -517,7 +517,7 @@ export default function Market(props) {
 									listings.length === 0
 									? (`No ads found for ${city}`)
 									:listings.filter((item)=>{
-										if(search==""){
+										if(search===""){
 											return item;
 										}
 										else if(item.title.toLowerCase().includes(search.toLowerCase())){

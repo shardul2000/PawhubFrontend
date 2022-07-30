@@ -218,7 +218,7 @@ export default function Services(props) {
 				</Link>
 			</MenuItem>
 			<MenuItem>
-				<Link to="/message" className="linkSidebar">
+				<Link to="/messenger" className="linkSidebar">
 					<IconButton
 						size="large"
 						aria-label="show 4 new mails"
@@ -366,7 +366,7 @@ export default function Services(props) {
 								size="large"
 								aria-label="show 4 new mails"
 								color="inherit"
-								onClick={() => navigate('/message')}
+								onClick={() => navigate('/messenger')}
 							>
 								<Badge badgeContent={0} color="error">
 									<MailIcon />
