@@ -9,7 +9,7 @@ import Market from './Market';
 import ProductDetails from './productDetails';
 import Services from './services';
 import ViewProfile from './Components/viewProfile';
-import Message from './Components/Messenger';
+import Messenger from './Components/messaging/Messenger';
 import CreateListingMarket from './Components/Forms/createListingMarket';
 import CreateListingService from './Components/Forms/createListingService';
 import Reports from './Components/Report/ShowReport';
@@ -31,7 +31,7 @@ function App() {
 					<Route path="/services" element={<Services />} />
 					<Route path="/productDetails/:id" element={<ProductDetails />} />
 					<Route path="/serviceDetails/:id" element={<ServiceDetails />} />
-					<Route path="/message" element={<Message />} />
+					<Route path="/messenger" element={<Messenger />} />
 					<Route path="/postAd" element={<CreateListingMarket />} />
 					<Route path="/postService" element={<CreateListingService />} />
 					<Route path="/reports" element={<Reports />} />

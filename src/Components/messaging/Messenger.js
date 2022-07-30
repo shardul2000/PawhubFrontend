@@ -21,11 +21,13 @@ import ReportIcon from '@mui/icons-material/Report';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Grid, TextField, Fab, Menu, MenuItem,ListSubheader,Button, Divider, Avatar } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
-import Footer from '../Components/Footer';
+import Footer from '../Footer';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import { borderRadius } from '@mui/system';
+import SendIcon from '@mui/icons-material/Send';
+import Message from './message';
 
 const drawerWidth = 240;
 
@@ -40,7 +42,15 @@ export default function Messenger(props) {
 	const isMenuOpen = Boolean(anchorEl);
 	const menuId = 'primary-search-account-menu';
 
-
+	const [ typeText, setTypeText] = useState("");
+    
+	const handleTypeText = (e) => {
+		setTypeText(e.target.value);
+	}
+	const submitMessage = () => {
+       alert(typeText);
+	   setTypeText("");
+	}
 
 	const handleProfileMenuOpen = (event) => {
 		setAnchorEl(event.currentTarget);
@@ -356,14 +366,13 @@ export default function Messenger(props) {
 					sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
 					aria-label="mailbox folders"
 				>
-					{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
 					<Drawer
 						container={container}
 						variant="temporary"
 						open={mobileOpen}
 						onClose={handleDrawerToggle}
 						ModalProps={{
-							keepMounted: true, // Better open performance on mobile.
+							keepMounted: true,
 						}}
 						sx={{
 							display: { xs: 'block', sm: 'none' },
@@ -389,16 +398,48 @@ export default function Messenger(props) {
 						{drawer}
 					</Drawer>
 				</Box>
-				<Box
-					component="main"
-					sx={{
-						flexGrow: 1,
-						p: 0,
-						width: { sm: `calc(100% - ${drawerWidth}px)` },
-					}}
-				>
-					<Toolbar />
-	
+				<Box component="main" sx={{flexGrow: 1,p: 0,width: { sm: `calc(100% - ${drawerWidth}px)` }}}>
+				         <div style={{minHeight:'5em', width:'100%'}}>
+                         </div>
+                         <div style={{minHeight:'30em'}}>
+                            <div className='container'>
+						     	<Grid container spacing={2}>
+								    <Grid item xs={0} sm={1} md={2}></Grid>
+									<Grid item xs={12} sm={10} md={8}>			
+										<Message message={'Hednekejne fhbr wkdme rfrr ene edned endeu no'} own={false}/>
+										<Message message={'Hello'} own={false}/>
+										<Message message={'Hello'} own={true}/>
+										<Message message={'Hello'} own={false}/>
+										<Message message={'Hello'} own={false}/>
+										<Message message={'Hello'} own={false}/>
+										<Message message={'Hello'} own={true}/>
+										<Message message={'Hello'} own={false}/>
+										<Message message={'Hello'} own={false}/>
+									</Grid>
+									<Grid item xs={0}sm={1} md={2}></Grid>
+								</Grid>
+								<Grid container spacing={2} sx={{marginBottom:6}}>
+								    <Grid item xs={0} sm={1} md={2}></Grid>
+									<Grid item xs={12} sm={10} md={8}>	
+										<div style={{display:'inline-block', width: '90%'}}>
+											<TextField variant='outlined'id="outlined-basic" label="Type message" value={typeText} sx={{marginInline:1.5, width:'100%'}} onChange={handleTypeText} />  
+										</div>	
+										<div style={{display:'inline-block', width: '10%'}}>
+										   <IconButton aria-label="delete" size="large" sx={{display:'inline-block', marginTop:3.3, marginInline:1}} onClick={submitMessage} >
+												<SendIcon sx={{ marginInline:1}} />
+											</IconButton>
+										</div>	
+									</Grid>
+									<Grid item xs={0}sm={1} md={2}></Grid>
+								</Grid>
+
+
+
+
+
+								
+                            </div>                
+                         </div>
 					<Footer />
 				</Box>
 			</Box>
