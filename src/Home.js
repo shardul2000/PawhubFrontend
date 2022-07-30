@@ -6,11 +6,6 @@ import CarouselHome from "./Components/carouselHome";
 import { useEffect } from "react";
 export default function Home(){
 
-    useEffect(() => {
-        alert(process.env.REACT_APP_SERVER)
-        
-        
-    }, []);
     return(
         <div className="contnr">    
         <Navbar />
